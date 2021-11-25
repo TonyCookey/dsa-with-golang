@@ -1,3 +1,2 @@
-# Data Structure and Algorithms
+# Data Structure and Algorithms in Golang
 
-## Implementations in Golang and Javascript
