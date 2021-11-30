@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	sliceOfInts := []int{7, 4, 5, 2, 3, 4, 1, 8}
+	sliceOfInts := []int{7, 4, 5, 2, 3, 4, 1, 8, 6}
 	sum := 10
 	fmt.Println(usingBruteForce(sliceOfInts, sum))
 	fmt.Println(hasPairWithSum(sliceOfInts, sum))
