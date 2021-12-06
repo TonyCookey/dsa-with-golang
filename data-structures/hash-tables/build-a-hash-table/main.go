@@ -19,12 +19,17 @@ func (h hashTable) set(key, value string) {
 	hash := h.hash(key)
 	bucket := []string{key, value}
 	h.data[hash] = bucket
-	fmt.Println(h)
 }
 func (h hashTable) get(key string) string {
 	hash := h.hash(key)
-	fmt.Println(hash)
 	return h.data[hash][1]
+}
+func (h hashTable) keys() []string {
+	keysSlice := []string{}
+	for _, value := range h.data {
+		keysSlice = append(keysSlice, value[0])
+	}
+	return keysSlice
 }
 func main() {
 	data := make(map[int][]string)
@@ -32,7 +37,8 @@ func main() {
 		data: data,
 	}
 	hashtable.set("Tony", "StarBoy")
-	hashtable.set("T", "ORORO")
+	hashtable.set("C", "ORORO")
 	fmt.Println(hashtable.get("Tony"))
+	fmt.Println(hashtable.keys())
 
 }
