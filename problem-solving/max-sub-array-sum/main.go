@@ -3,19 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	input := []int{-2}
+	input := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
+	//[5,4,-1,7,8]
 	fmt.Println(maxSubArray(input))
 }
 func maxSubArray(nums []int) int {
-	// sum  & maxsum
+	// sum  & maxSum
 	// length of nums
 	// contiguous : that follow each other
-
-	numsLength := len(nums)
-	if numsLength == 0 || nums == nil {
-		return 0
-	}
-
 	var maxSum int = nums[0]
 	var sum int = nums[0]
 
