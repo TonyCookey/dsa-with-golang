@@ -31,6 +31,14 @@ func (h hashTable) keys() []string {
 	}
 	return keysSlice
 }
+
+func (h hashTable) values() []string {
+	keysSlice := []string{}
+	for _, value := range h.data {
+		keysSlice = append(keysSlice, value[1])
+	}
+	return keysSlice
+}
 func main() {
 	data := make(map[int][]string)
 	hashtable := hashTable{
@@ -40,5 +48,6 @@ func main() {
 	hashtable.set("C", "ORORO")
 	fmt.Println(hashtable.get("Tony"))
 	fmt.Println(hashtable.keys())
+	fmt.Println(hashtable.values())
 
 }
