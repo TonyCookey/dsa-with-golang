@@ -35,3 +35,6 @@ func (l LinkedList) append(value int) {
 		ptr = ptr.next
 	}
 }
+func (l LinkedList) getLastNode() *Node {
+	return l.tail
+}
