@@ -137,15 +137,34 @@ func (l *LinkedList) deleteAtPosition(index int) error {
 		return errors.New("invalid index: index greater than length of linked list")
 	}
 	leaderNode := l.getAtPostion(index - 1)
-	fmt.Println(leaderNode)
 	currentNode := leaderNode.next
-	fmt.Println(currentNode)
 	leaderNode.next = currentNode.next
 	l.length--
 
 	return nil
 }
+func (l *LinkedList) deleteNodeUsingValue(value int) error {
+	if l.length == 0 {
+		return errors.New("no nodes in the linkedList")
+	}
+	ptr := l.head
+	for i := 0; i < l.length; i++ {
+		if ptr.value == value {
+			if i == 0 {
+				l.head = ptr.next
+				l.length--
+				return nil
+			}
+			leaderNode := l.getAtPostion(i - 1)
+			leaderNode.next = ptr.next
+			l.length--
+			return nil
+		}
+		ptr = ptr.next
+	}
+	return nil
 
+}
 func main() {
 	linkedlist := LinkedList{}
 
@@ -153,10 +172,16 @@ func main() {
 	linkedlist.append(5)
 	linkedlist.prepend(50)
 	linkedlist.getAtPostion(1)
+	fmt.Println(linkedlist.searchByValue(5))
 	linkedlist.print()
 	linkedlist.insertAtPosition(2, 10)
 	linkedlist.print()
 	err := linkedlist.deleteAtPosition(1)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	linkedlist.print()
+	err = linkedlist.deleteNodeUsingValue(50)
 	if err != nil {
 		log.Fatalln(err)
 	}
