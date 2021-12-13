@@ -1,5 +1,11 @@
 package main
 
+import (
+	"errors"
+	"fmt"
+	"log"
+)
+
 //Node struct - represents a node in a linked list
 type Node struct {
 	value int
@@ -14,7 +20,7 @@ type LinkedList struct {
 }
 
 // append - add a node to the end of the linked list
-func (l LinkedList) append(value int) {
+func (l *LinkedList) append(value int) {
 	node := Node{}
 	node.value = value
 
@@ -35,6 +41,124 @@ func (l LinkedList) append(value int) {
 		ptr = ptr.next
 	}
 }
-func (l LinkedList) getLastNode() *Node {
-	return l.tail
+
+func (l *LinkedList) getLastNode() *Node {
+	//return l.tail
+	return l.getAtPostion(l.length - 1)
+}
+
+// getAtPostion - returns the node at the specified index
+func (l *LinkedList) getAtPostion(index int) *Node {
+	ptr := l.head
+	if index == 0 {
+		return ptr
+	}
+	if index < 0 {
+		return nil
+	}
+	if index > (l.length - 1) {
+		return nil
+	}
+	for i := 0; i < index; i++ {
+		ptr = ptr.next
+	}
+	return ptr
+}
+
+// print - prints all the nodes in the linkedlist
+func (l *LinkedList) print() {
+	if l.length == 0 {
+		fmt.Println("No Nodes in the Linked list")
+	}
+	slice := []Node{}
+	ptr := l.head
+	for i := 0; i < l.length; i++ {
+		slice = append(slice, *ptr)
+		ptr = ptr.next
+	}
+	fmt.Println("LinkedList", slice)
+}
+
+// insertAtPosition : inserts a node at a specified index
+func (l *LinkedList) insertAtPosition(index int, value int) {
+
+	if index == 0 {
+		l.head = &Node{
+			value: value,
+			next:  l.head,
+		}
+		l.length++
+		return
+	}
+	if index < 0 {
+		return
+	}
+	if index > (l.length - 1) {
+		l.append(value)
+	}
+	leaderNode := l.getAtPostion(index - 1)
+	currentNode := leaderNode.next
+	leaderNode.next = &Node{
+		value: value,
+		next:  currentNode,
+	}
+	l.length++
+}
+
+// prepend - inserts at the beginning of the linked list
+func (l *LinkedList) prepend(value int) {
+	l.insertAtPosition(0, value)
+}
+func (l *LinkedList) searchByValue(value int) *Node {
+	if l.length == 0 {
+		return nil
+	}
+	ptr := l.head
+	for i := 0; i < l.length; i++ {
+		if ptr.value == value {
+			return ptr
+		}
+		ptr = ptr.next
+	}
+	return nil
+}
+func (l *LinkedList) deleteAtPosition(index int) error {
+	if l.length == 0 {
+		return errors.New("no nodes in the linkedList")
+	}
+	if index == 0 {
+		l.head = l.head.next
+		l.length--
+	}
+	if index < 0 {
+		return errors.New("invalid index: no negative numbers")
+	}
+	if index > (l.length - 1) {
+		return errors.New("invalid index: index greater than length of linked list")
+	}
+	leaderNode := l.getAtPostion(index - 1)
+	fmt.Println(leaderNode)
+	currentNode := leaderNode.next
+	fmt.Println(currentNode)
+	leaderNode.next = currentNode.next
+	l.length--
+
+	return nil
+}
+
+func main() {
+	linkedlist := LinkedList{}
+
+	linkedlist.append(4)
+	linkedlist.append(5)
+	linkedlist.prepend(50)
+	linkedlist.getAtPostion(1)
+	linkedlist.print()
+	linkedlist.insertAtPosition(2, 10)
+	linkedlist.print()
+	err := linkedlist.deleteAtPosition(1)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	linkedlist.print()
 }
