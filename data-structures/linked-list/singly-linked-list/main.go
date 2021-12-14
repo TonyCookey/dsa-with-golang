@@ -165,6 +165,27 @@ func (l *LinkedList) deleteNodeUsingValue(value int) error {
 	return nil
 
 }
+func (l *LinkedList) reverseUsingIteration() {
+	if l.length == 0 {
+		return
+	}
+	var current, prev, next *Node
+
+	//set the current to the head of the linked list
+	current = l.head
+
+	//traverse through the linked list until current is nil
+	for current != nil {
+		next = current.next
+		current.next = prev
+
+		//preparing values for the next iteration - i.e moving the cursors - current and prev
+		prev = current
+		current = next
+	}
+	l.head = prev
+	l.print()
+}
 func main() {
 	linkedlist := LinkedList{}
 
