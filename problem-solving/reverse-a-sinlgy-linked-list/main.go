@@ -48,7 +48,9 @@ func (l *LinkedList) print() {
 	slice := []int{}
 	ptr := l.head
 	for i := 0; i < l.length; i++ {
-		slice = append(slice, (*ptr).value)
+		slice = append(slice, ptr.value)
+		// using de-referencing and accessing a pointer value
+		//slice = append(slice, (*ptr).value)
 		ptr = ptr.next
 	}
 	fmt.Println("LinkedList", slice)
