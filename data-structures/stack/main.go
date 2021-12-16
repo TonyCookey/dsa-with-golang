@@ -21,6 +21,11 @@ func (s *Stack) isEmpty() bool {
 	return s.length == 0
 }
 func (s *Stack) pop() {
+	fmt.Println(s.bottom.value)
+	if s.length == 1 {
+		s.bottom = nil
+		fmt.Println(s.bottom)
+	}
 	s.top = s.top.next
 	s.length--
 	return
@@ -44,6 +49,9 @@ func main() {
 	stack.push("Cookey")
 	stack.push("Starboy")
 	stack.peek()
+	fmt.Println(stack)
+	stack.pop()
+	stack.pop()
 	stack.pop()
 	stack.isEmpty()
 	fmt.Println(stack)
