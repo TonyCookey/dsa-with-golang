@@ -16,7 +16,6 @@ type Node struct {
 type LinkedList struct {
 	head   *Node
 	length int
-	//tail   *Node
 }
 
 // append - add a node to the end of the linked list
@@ -27,7 +26,6 @@ func (l *LinkedList) append(value int) {
 	if l.length == 0 {
 		l.head = &node
 		l.length++
-		//l.tail = &node
 		return
 	}
 	// ptr - address of the starting/current point through the iteration
@@ -43,12 +41,11 @@ func (l *LinkedList) append(value int) {
 }
 
 func (l *LinkedList) getLastNode() *Node {
-	//return l.tail
-	return l.getAtPostion(l.length - 1)
+	return l.getAtPosition(l.length - 1)
 }
 
-// getAtPostion - returns the node at the specified index
-func (l *LinkedList) getAtPostion(index int) *Node {
+// getAtPosition - returns the node at the specified index
+func (l *LinkedList) getAtPosition(index int) *Node {
 	ptr := l.head
 	if index == 0 {
 		return ptr
@@ -96,7 +93,7 @@ func (l *LinkedList) insertAtPosition(index int, value int) {
 	if index > (l.length - 1) {
 		l.append(value)
 	}
-	leaderNode := l.getAtPostion(index - 1)
+	leaderNode := l.getAtPosition(index - 1)
 	currentNode := leaderNode.next
 	leaderNode.next = &Node{
 		value: value,
@@ -136,7 +133,7 @@ func (l *LinkedList) deleteAtPosition(index int) error {
 	if index > (l.length - 1) {
 		return errors.New("invalid index: index greater than length of linked list")
 	}
-	leaderNode := l.getAtPostion(index - 1)
+	leaderNode := l.getAtPosition(index - 1)
 	currentNode := leaderNode.next
 	leaderNode.next = currentNode.next
 	l.length--
@@ -155,7 +152,7 @@ func (l *LinkedList) deleteNodeUsingValue(value int) error {
 				l.length--
 				return nil
 			}
-			leaderNode := l.getAtPostion(i - 1)
+			leaderNode := l.getAtPosition(i - 1)
 			leaderNode.next = ptr.next
 			l.length--
 			return nil
@@ -192,7 +189,7 @@ func main() {
 	linkedlist.append(4)
 	linkedlist.append(5)
 	linkedlist.prepend(50)
-	linkedlist.getAtPostion(1)
+	linkedlist.getAtPosition(1)
 	fmt.Println(linkedlist.searchByValue(5))
 	linkedlist.print()
 	linkedlist.insertAtPosition(2, 10)
