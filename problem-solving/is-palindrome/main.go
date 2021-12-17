@@ -9,6 +9,8 @@ func main() {
 	fmt.Println(isPalindrome(133341))
 }
 
+// isPalindrome - checks to see if a number is a palindrome(reads the same to and fro - from front and back)
+// returns bool value
 func isPalindrome(x int) bool {
 	chars := []rune(strconv.Itoa(x))
 	i := 0
