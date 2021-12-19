@@ -59,6 +59,18 @@ func (b *BinarySearchTree) lookup(value int) *Node {
 	return nil
 }
 
+func (n *Node) isLeaf() bool {
+	if n.right == nil && n.left == nil {
+		return true
+	}
+	return false
+}
+func (n *Node) hasChild() bool {
+	if n.right != nil || n.left != nil {
+		return true
+	}
+	return false
+}
 func main() {
 	bst := BinarySearchTree{}
 	bst.insert(10)
