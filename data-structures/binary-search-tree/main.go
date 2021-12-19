@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Node struct {
 	value int
 	left  *Node
@@ -43,5 +45,32 @@ func (b *BinarySearchTree) insert(value int) {
 
 // lookup- finds a node using its value
 func (b *BinarySearchTree) lookup(value int) *Node {
+	currentNode := b.root
+	for currentNode != nil {
+		if currentNode.value == value {
+			return currentNode
+		}
+		if currentNode.value < value {
+			currentNode = currentNode.left
+		} else {
+			currentNode = currentNode.right
+		}
+	}
+	return nil
+}
 
+func main() {
+	bst := BinarySearchTree{}
+	bst.insert(10)
+	bst.insert(8)
+	bst.insert(6)
+	bst.insert(14)
+	bst.insert(2)
+	bst.insert(9)
+	bst.insert(7)
+	bst.insert(12)
+	bst.insert(15)
+	bst.insert(11)
+	fmt.Println(bst.lookup(2))
+	fmt.Println(bst)
 }
