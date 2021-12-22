@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	fmt.Println(fibonacciIterative(7))
+	fmt.Println(fibonacciIterativeArray(7))
 	fmt.Println(fibonacciRecursive(7))
 }
 
@@ -21,11 +22,19 @@ func fibonacciIterative(n int) int {
 	}
 	return current
 }
+func fibonacciIterativeArray(n int) int {
+	xi := []int{0, 1}
+
+	for i := 2; i <= n; i++ {
+		xi = append(xi, xi[i-2]+xi[i-1])
+	}
+	return xi[n]
+}
+
 func fibonacciRecursive(n int) int {
 	if n <= 2 {
 		return 1
 	}
 	sum := fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
-	fmt.Println("sum:", n-1, "-", n-2, "=", sum)
 	return sum
 }
