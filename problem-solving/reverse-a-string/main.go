@@ -9,7 +9,14 @@ func main() {
 	randomString := "My name is Tony Cookey"
 	fmt.Println(reverseStringUsingSplitAfter(randomString, ""))
 	fmt.Println(reverseStringUsingSliceOfByte(randomString))
+	fmt.Println(reverseStringRecursion(randomString))
 
+}
+func reverseStringRecursion(s string) string {
+	if len(s) == 0 {
+		return ""
+	}
+	return reverseStringRecursion(s[1:]) + string(s[0])
 }
 func reverseStringUsingSplitAfter(s string, sep string) string {
 	// convert string in slice suing strings.SplitAfter()
