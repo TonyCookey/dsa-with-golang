@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(fibonacciIterative(12))
+	fmt.Println(fibonacciIterative(7))
+	fmt.Println(fibonacciRecursive(7))
 }
 
 func fibonacciIterative(n int) int {
-	// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
 	current := 1
 	prev := 0
 	next := 0
@@ -20,4 +20,12 @@ func fibonacciIterative(n int) int {
 		index++
 	}
 	return current
+}
+func fibonacciRecursive(n int) int {
+	if n <= 2 {
+		return 1
+	}
+	sum := fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
+	fmt.Println("sum:", n-1, "-", n-2, "=", sum)
+	return sum
 }
