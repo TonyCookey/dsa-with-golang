@@ -4,7 +4,6 @@ import "fmt"
 
 func main() {
 	xi := []int{99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 23, 20, 18, 28}
-	fmt.Println(xi[15])
 	fmt.Println(insertionSort(xi))
 }
 func insertionSort(xi []int) []int {
