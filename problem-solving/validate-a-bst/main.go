@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 type Node struct {
 	value int
@@ -68,6 +71,20 @@ func BSTTraverseInorder(node *Node, list []int) []int {
 	return list
 }
 
+// optimum way to validate a binary search tree
+func isValidBSTOptimum(node *Node) bool {
+	return validateHelper(node, math.MinInt64, math.MaxInt64)
+}
+func validateHelper(node *Node, min, max int) bool {
+	if node == nil {
+		return true
+	}
+	if !(node.value > min && node.value < max) {
+		return false
+	}
+	return validateHelper(node.left, min, node.value) && validateHelper(node.right, node.value, max)
+}
+
 func main() {
 	bst := BinarySearchTree{}
 	bst.insert(9)
@@ -77,5 +94,5 @@ func main() {
 	bst.insert(8)
 	bst.insert(15)
 	bst.insert(70)
-	fmt.Println(bst.isValidBST(bst.root))
+	fmt.Println(isValidBSTOptimum(bst.root))
 }
