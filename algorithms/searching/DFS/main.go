@@ -64,6 +64,18 @@ func (b *BinarySearchTree) DFSPreOrder(node *Node, list []int) []int {
 	return list
 }
 
+func (b *BinarySearchTree) DFSInOrder(node *Node, list []int) []int {
+
+	if node.left != nil {
+		list = b.DFSInOrder(node.left, list)
+	}
+	list = append(list, node.value)
+	if node.right != nil {
+		list = b.DFSInOrder(node.right, list)
+	}
+	return list
+}
+
 func main() {
 	bst := BinarySearchTree{}
 	bst.insert(9)
@@ -75,4 +87,5 @@ func main() {
 	bst.insert(170)
 	fmt.Println("Post Order", bst.DFSPostOrder(bst.root, []int{}))
 	fmt.Println("Pre Order", bst.DFSPreOrder(bst.root, []int{}))
+	fmt.Println("In Order", bst.DFSInOrder(bst.root, []int{}))
 }
