@@ -63,6 +63,22 @@ func (b *BinarySearchTree) breadthFirstSearch() []int {
 	}
 	return list
 }
+func (b *BinarySearchTree) breadthFirstSearchRecursive(queue []*Node, list []int) []int {
+	if len(queue) == 0 {
+		return list
+	}
+	currentNode := queue[0]
+	list = append(list, currentNode.value)
+
+	if currentNode.left != nil {
+		queue = append(queue, currentNode.left)
+	}
+	if currentNode.right != nil {
+		queue = append(queue, currentNode.right)
+	}
+	queue = queue[1:]
+	return b.breadthFirstSearchRecursive(queue, list)
+}
 
 func main() {
 	bst := BinarySearchTree{}
@@ -73,6 +89,6 @@ func main() {
 	bst.insert(8)
 	bst.insert(15)
 	bst.insert(70)
-
-	fmt.Println(bst.breadthFirstSearch())
+	//fmt.Println(bst.breadthFirstSearch())
+	fmt.Println(bst.breadthFirstSearchRecursive([]*Node{bst.root}, []int{}))
 }
