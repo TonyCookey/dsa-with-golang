@@ -73,8 +73,6 @@ func main() {
 	bst.insert(8)
 	bst.insert(15)
 	bst.insert(70)
-	//bst.insert(12)
-	//bst.insert(15)
-	//bst.insert(11)
+
 	fmt.Println(bst.breadthFirstSearch())
 }
