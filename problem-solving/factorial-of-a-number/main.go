@@ -12,8 +12,8 @@ func findFactorialUsingRecursion(x int) int {
 	if x < 1 {
 		return 1
 	}
-	sum := x * findFactorialUsingRecursion(x-1)
-	return sum
+	return x * findFactorialUsingRecursion(x-1)
+
 }
 func findFactorialUsingIteration(x int) int {
 	var sum int = 1
