@@ -8,6 +8,7 @@ func main() {
 		cache: cache,
 	}
 	fmt.Println(fibs.fibonacciMemoized(10))
+	fmt.Println(fibonacciBottomsUp(10))
 }
 
 type FibonacciSequence struct {
@@ -26,4 +27,12 @@ func (f *FibonacciSequence) fibonacciMemoized(n int) int {
 		}
 	}
 
+}
+func fibonacciBottomsUp(n int) int {
+	sequence := []int{0, 1}
+
+	for i := 2; i <= n; i++ {
+		sequence = append(sequence, (sequence[i-2] + sequence[i-1]))
+	}
+	return sequence[n]
 }
