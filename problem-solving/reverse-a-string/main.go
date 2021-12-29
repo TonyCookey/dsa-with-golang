@@ -22,7 +22,6 @@ func reverseStringUsingSplitAfter(s string, sep string) string {
 	// convert string in slice suing strings.SplitAfter()
 	// can be used to reverse the words in a string depending on the separator
 	//can also be used to reverse every character in the string
-
 	sliceOfString := strings.SplitAfter(s, sep)
 	var resultString []string
 
