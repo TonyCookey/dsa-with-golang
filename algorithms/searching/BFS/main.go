@@ -45,8 +45,8 @@ func (b *BinarySearchTree) insert(value int) {
 
 func (b *BinarySearchTree) breadthFirstSearch() []int {
 	currentNode := b.root
-	queue := []*Node{}
-	list := []int{}
+	var queue []*Node
+	var list []int
 	queue = append(queue, currentNode)
 
 	for len(queue) != 0 {
@@ -89,6 +89,6 @@ func main() {
 	bst.insert(8)
 	bst.insert(15)
 	bst.insert(70)
-	//fmt.Println(bst.breadthFirstSearch())
+	fmt.Println(bst.breadthFirstSearch())
 	fmt.Println(bst.breadthFirstSearchRecursive([]*Node{bst.root}, []int{}))
 }
