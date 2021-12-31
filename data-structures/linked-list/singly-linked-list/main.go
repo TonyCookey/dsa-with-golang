@@ -40,6 +40,7 @@ func (l *LinkedList) append(value int) {
 	}
 }
 
+// getLastNode - get the very last node
 func (l *LinkedList) getLastNode() *Node {
 	return l.getAtPosition(l.length - 1)
 }
@@ -78,7 +79,6 @@ func (l *LinkedList) print() {
 
 // insertAtPosition : inserts a node at a specified index
 func (l *LinkedList) insertAtPosition(index int, value int) {
-
 	if index == 0 {
 		l.head = &Node{
 			value: value,
@@ -106,6 +106,8 @@ func (l *LinkedList) insertAtPosition(index int, value int) {
 func (l *LinkedList) prepend(value int) {
 	l.insertAtPosition(0, value)
 }
+
+// searchByValue - search the linked list using the value
 func (l *LinkedList) searchByValue(value int) *Node {
 	if l.length == 0 {
 		return nil
@@ -119,6 +121,8 @@ func (l *LinkedList) searchByValue(value int) *Node {
 	}
 	return nil
 }
+
+// deleteAtPosition - delete node at an index
 func (l *LinkedList) deleteAtPosition(index int) error {
 	if l.length == 0 {
 		return errors.New("no nodes in the linkedList")
@@ -140,6 +144,8 @@ func (l *LinkedList) deleteAtPosition(index int) error {
 
 	return nil
 }
+
+// deleteNodeUsingValue - delete node using the value provided
 func (l *LinkedList) deleteNodeUsingValue(value int) error {
 	if l.length == 0 {
 		return errors.New("no nodes in the linkedList")
@@ -162,6 +168,8 @@ func (l *LinkedList) deleteNodeUsingValue(value int) error {
 	return nil
 
 }
+
+// reverseUsingIteration - reverse linked list using iteration
 func (l *LinkedList) reverseUsingIteration() {
 	if l.length == 0 {
 		return
