@@ -17,7 +17,7 @@ type Node struct {
 type LinkedList struct {
 	head   *Node
 	length int
-	//tail   *Node
+	tail   *Node
 }
 
 // append - add a node to the end of the linked list
