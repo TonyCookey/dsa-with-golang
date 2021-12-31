@@ -7,11 +7,12 @@ type Node struct {
 	left  *Node
 	right *Node
 }
+
 type BinarySearchTree struct {
 	root *Node
 }
 
-// inserts values into the binary search tree
+// insert - inserts values into the binary search tree
 func (b *BinarySearchTree) insert(value int) {
 	newNode := Node{
 		value: value,
@@ -59,12 +60,15 @@ func (b *BinarySearchTree) lookup(value int) *Node {
 	return nil
 }
 
+// isLeaf - checks if the node is a leaf node
 func (n *Node) isLeaf() bool {
 	if n.right == nil && n.left == nil {
 		return true
 	}
 	return false
 }
+
+// hasChild - checks if the node has at least 1 child node
 func (n *Node) hasChild() bool {
 	if n.right != nil || n.left != nil {
 		return true
