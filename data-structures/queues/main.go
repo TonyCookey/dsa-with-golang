@@ -12,14 +12,19 @@ type Queue struct {
 	length int
 }
 
+// peek - checks the first value in the queue
 func (q *Queue) peek() string {
 	fmt.Println(q.first.value)
 	return q.first.value
 }
+
+// isEmpty - checks if the queue is empty
 func (q *Queue) isEmpty() bool {
 	fmt.Println(q.length == 0)
 	return q.length == 0
 }
+
+// dequeue - remove from the queue - FIFO
 func (q *Queue) dequeue() {
 	if q.length == 1 {
 		q.last = nil
@@ -28,6 +33,8 @@ func (q *Queue) dequeue() {
 	q.length--
 	return
 }
+
+// enqueue - add to the queue
 func (q *Queue) enqueue(value string) {
 	newNode := Node{
 		value: value,
