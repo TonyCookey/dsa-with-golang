@@ -10,7 +10,7 @@ func main() {
 	fmt.Println(usingBruteForce(sliceOfInts, sum))
 }
 
-// Solving twoSum using maps - a more efficient approach
+// twoSum using maps - a more efficient approach
 func twoSum(nums []int, target int) []int {
 	// Time Complexity: O(n)
 	// get the indices of the pair that sum up to target
@@ -25,7 +25,7 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
-// Solving twoSum using maps/hash maps - a more efficient and cleaner approach
+// twoSumCleaner - solving twoSum using maps/hash maps - a more efficient and cleaner approach
 func twoSumCleaner(nums []int, target int) []int {
 	// Time Complexity: O(n)
 	// get the indices of the pair that sum up to target
@@ -39,7 +39,7 @@ func twoSumCleaner(nums []int, target int) []int {
 	return nil
 }
 
-// Solving twoSum using the brute force approach
+// usingBruteForce - solving using the brute force approach
 func usingBruteForce(nums []int, target int) []int {
 	//Time Complexity : O(n^2)
 	for i := 0; i < len(nums); i++ {
