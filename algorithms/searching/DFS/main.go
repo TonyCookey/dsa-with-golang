@@ -43,6 +43,7 @@ func (b *BinarySearchTree) insert(value int) {
 	return
 }
 
+// DFSPostOrder BST Traversal
 func (b *BinarySearchTree) DFSPostOrder(node *Node, list []int) []int {
 	if node.left != nil {
 		list = b.DFSPostOrder(node.left, list)
@@ -53,6 +54,8 @@ func (b *BinarySearchTree) DFSPostOrder(node *Node, list []int) []int {
 	list = append(list, node.value)
 	return list
 }
+
+// DFSPreOrder BST Traversal
 func (b *BinarySearchTree) DFSPreOrder(node *Node, list []int) []int {
 	list = append(list, node.value)
 	if node.left != nil {
@@ -64,6 +67,7 @@ func (b *BinarySearchTree) DFSPreOrder(node *Node, list []int) []int {
 	return list
 }
 
+// DFSInOrder BST Traversal
 func (b *BinarySearchTree) DFSInOrder(node *Node, list []int) []int {
 
 	if node.left != nil {
