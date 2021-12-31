@@ -7,6 +7,8 @@ func main() {
 	//[5,4,-1,7,8]
 	fmt.Println(maxSubArray(input))
 }
+
+//maxSubArray - max sub contiguous array
 func maxSubArray(nums []int) int {
 	// sum  & maxSum
 	// length of nums
