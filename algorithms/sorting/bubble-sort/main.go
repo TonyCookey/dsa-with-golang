@@ -6,6 +6,8 @@ func main() {
 	xi := []int{99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 23, 20, 18, 28}
 	fmt.Println(bubbleSort(xi))
 }
+
+//bubbleSort - bubble sort algorithm
 func bubbleSort(xi []int) []int {
 	length := len(xi)
 
