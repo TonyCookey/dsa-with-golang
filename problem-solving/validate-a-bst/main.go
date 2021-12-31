@@ -71,10 +71,12 @@ func BSTTraverseInorder(node *Node, list []int) []int {
 	return list
 }
 
-// optimum way to validate a binary search tree
+// isValidBSTOptimum - optimum way to validate a binary search tree
 func isValidBSTOptimum(node *Node) bool {
 	return validateHelper(node, math.MinInt64, math.MaxInt64)
 }
+
+//validateHelper - helper fucntion to validate a BST
 func validateHelper(node *Node, min, max int) bool {
 	if node == nil {
 		return true
