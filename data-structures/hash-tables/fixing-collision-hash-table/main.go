@@ -8,6 +8,7 @@ type hashTable struct {
 	data map[int][]string
 }
 
+// hash - hashes the key
 func (h hashTable) hash(key string) int {
 	var hash int
 	for i := 0; i < len(key); i++ {
@@ -15,6 +16,8 @@ func (h hashTable) hash(key string) int {
 	}
 	return hash
 }
+
+// set - sets the key and value
 func (h hashTable) set(key, value string) {
 	hash := h.hash(key)
 	if _, ok := h.data[hash]; ok {
@@ -25,6 +28,8 @@ func (h hashTable) set(key, value string) {
 	}
 
 }
+
+// get - returns value using the key
 func (h hashTable) get(key string) string {
 	hash := h.hash(key)
 	if _, ok := h.data[hash]; ok {
@@ -35,6 +40,8 @@ func (h hashTable) get(key string) string {
 	}
 
 }
+
+// keys- returns all the keys in the hashtable
 func (h hashTable) keys() []string {
 	keysSlice := []string{}
 	for _, value := range h.data {
