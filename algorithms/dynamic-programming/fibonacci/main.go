@@ -15,6 +15,7 @@ type FibonacciSequence struct {
 	cache map[int]int
 }
 
+// fibonacciMemoized - using dynamic programming - memoization and caching
 func (f *FibonacciSequence) fibonacciMemoized(n int) int {
 	if n < 2 {
 		return n
@@ -28,6 +29,8 @@ func (f *FibonacciSequence) fibonacciMemoized(n int) int {
 	}
 
 }
+
+// fibonacciBottomsUp - using dynamic programming - Bottoms up technique
 func fibonacciBottomsUp(n int) int {
 	sequence := []int{0, 1}
 
