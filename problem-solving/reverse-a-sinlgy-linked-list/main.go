@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-// see the data-structures/linked-list/singly-linked-list for the full set of methods
 // Node struct - represents a node in a linked list
+// see the data-structures/linked-list/singly-linked-list for the full set of methods
 type Node struct {
 	value int
 	next  *Node
@@ -55,6 +55,8 @@ func (l *LinkedList) print() {
 	}
 	fmt.Println("LinkedList", slice)
 }
+
+//reverseUsingIteration - reverse a singly linked list using iteration
 func (l *LinkedList) reverseUsingIteration() {
 	if l.length == 0 {
 		return
