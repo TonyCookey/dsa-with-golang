@@ -7,6 +7,7 @@ type Graph struct {
 	numberOfNodes int
 }
 
+// addVertex - adds a new node
 func (g *Graph) addVertex(node int) {
 	if _, ok := g.adjacentList[node]; ok {
 		return
