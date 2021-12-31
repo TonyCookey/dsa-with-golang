@@ -9,6 +9,8 @@ import (
 func main() {
 	fmt.Println(findMinimumAbsoluteDifference([]int{3, 8, -10, 23, 19, -4, -14, 27}))
 }
+
+//findMinimumAbsoluteDifference - find the minimum absolute difference
 func findMinimumAbsoluteDifference(arr []int) [][]int {
 	// sort the arr
 	sort.Ints(arr)
