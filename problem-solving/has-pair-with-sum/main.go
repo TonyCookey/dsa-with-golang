@@ -9,7 +9,7 @@ func main() {
 	fmt.Println(hasPairWithSum(sliceOfInts, sum))
 }
 
-// Solving hasPairWithSum using maps - a more efficient approach
+// hasPairWithSum using maps - a more efficient approach
 func hasPairWithSum(slice []int, sum int) bool {
 	//Time Complexity : O(n)
 	// used to store the complements - (sum - slice[i]), which is what is needed for a pair sum
@@ -23,7 +23,7 @@ func hasPairWithSum(slice []int, sum int) bool {
 	return false
 }
 
-// Solving hasPairWithSum using the brute force approach
+// usingBruteForce - solving hasPairWithSum using the brute force approach
 func usingBruteForce(slice []int, sum int) bool {
 
 	//Time Complexity : O(n^2)
