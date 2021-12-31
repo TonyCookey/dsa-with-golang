@@ -6,6 +6,8 @@ func main() {
 	xi := []int{99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 23, 20, 18, 28}
 	fmt.Println(insertionSort(xi))
 }
+
+//insertionSort - insertion sort algorithm
 func insertionSort(xi []int) []int {
 	for i := 0; i < len(xi)-1; i++ {
 		holding := xi[i]
