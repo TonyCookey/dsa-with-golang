@@ -20,6 +20,7 @@ func (b *BinarySearchTree) insert(value int) {
 		b.root = &newNode
 		return
 	}
+
 	//set the current/pointer node
 	currentNode := b.root
 	for currentNode != nil {
