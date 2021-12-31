@@ -12,12 +12,16 @@ func main() {
 	fmt.Println(reverseStringRecursion(randomString))
 
 }
+
+//reverseStringRecursion - reversing string using recursion
 func reverseStringRecursion(s string) string {
 	if len(s) == 0 {
 		return ""
 	}
 	return reverseStringRecursion(s[1:]) + string(s[0])
 }
+
+// reverseStringUsingSplitAfter - reverse string using SplitAfter
 func reverseStringUsingSplitAfter(s string, sep string) string {
 	// convert string in slice suing strings.SplitAfter()
 	// can be used to reverse the words in a string depending on the separator
@@ -31,6 +35,8 @@ func reverseStringUsingSplitAfter(s string, sep string) string {
 	return strings.Join(resultString, sep)
 
 }
+
+//reverseStringUsingSliceOfByte - reverse string using slice of bytes
 func reverseStringUsingSliceOfByte(s string) string {
 	//convert to a slice of bytes
 	//used to reverse every character in the string
