@@ -11,6 +11,9 @@ func main() {
 	fmt.Println(reverseStringUsingSliceOfByte(randomString))
 	fmt.Println(reverseStringRecursion(randomString))
 
+	randomSliceOfByte := []byte{'h', 'e', 'l', 'l', 'o'}
+	fmt.Println(reverseString(randomSliceOfByte))
+
 }
 
 //reverseStringRecursion - reversing string using recursion
@@ -47,4 +50,13 @@ func reverseStringUsingSliceOfByte(s string) string {
 		resultBytes = append(resultBytes, sliceOfByte[i])
 	}
 	return string(resultBytes)
+}
+
+//reverseString - reverse string (slice of bytes) using in-place algorithm
+func reverseString(s []byte) []byte {
+	length := len(s)
+	for i, j := 0, length-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
+	return s
 }
