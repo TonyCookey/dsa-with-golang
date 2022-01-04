@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	//fmt.Println(findJudge(4, [][]int{{1, 3}, {1,4}, {2, 3}, {2,4}, {4,3}}))
