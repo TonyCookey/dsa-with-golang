@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(complementBaseTenInteger(5))
+	fmt.Println(complementBaseTenInteger(8))
 }
 
 func complementBaseTenInteger(n int) int {
