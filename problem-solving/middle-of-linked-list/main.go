@@ -17,3 +17,12 @@ func middleNode(head *ListNode) *ListNode {
 		return slow
 	}
 }
+
+func middleNode2(head *ListNode) *ListNode {
+	s := []*ListNode{}
+	for head != nil {
+		s = append(s, head)
+		head = head.Next
+	}
+	return s[len(s)/2]
+}
