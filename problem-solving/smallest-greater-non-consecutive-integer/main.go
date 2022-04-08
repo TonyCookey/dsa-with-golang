@@ -2,10 +2,15 @@ package main
 
 // you can also use imports, for example:
 // import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 // you can write to stdout for debugging purposes, e.g.
-
+func main() {
+	fmt.Println(Solution(9999))
+}
 func Solution(N int) int {
 	// write your code in Go 1.4
 	digitArray := isConsecutiveDigit(N + 1)
