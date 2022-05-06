@@ -25,13 +25,13 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 	return nil
 }
 
-func searchBST2(root *TreeNode, val int) *TreeNode {
+func searchBSTCleaner(root *TreeNode, val int) *TreeNode {
 	if root == nil || root.Val == val {
 		return root
 	}
 	if root.Val > val {
-		return searchBST2(root.Left, val)
+		return searchBSTCleaner(root.Left, val)
 	} else {
-		return searchBST2(root.Right, val)
+		return searchBSTCleaner(root.Right, val)
 	}
 }
