@@ -6,7 +6,38 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func minDepth(root *TreeNode) int {
+func minDepthBFS(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	queue := []*TreeNode{root}
+	var depth int
+
+	for len(queue) > 0 {
+		queue_length := len(queue)
+		depth++
+
+		for i := 0; i < queue_length; i++ {
+			curr := queue[0]
+			queue = queue[1:]
+
+			if curr.Right == nil && curr.Left == nil {
+				return depth
+			}
+			if curr.Left != nil {
+				queue = append(queue, curr.Left)
+			}
+
+			if curr.Right != nil {
+				queue = append(queue, curr.Right)
+			}
+
+		}
+	}
+	return depth
+}
+
+func minDepthDFS(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -14,8 +45,8 @@ func minDepth(root *TreeNode) int {
 		return 1
 	}
 
-	leftDepth := minDepth(root.Left)
-	rightDepth := minDepth(root.Right)
+	leftDepth := minDepthDFS(root.Left)
+	rightDepth := minDepthDFS(root.Right)
 
 	return min(leftDepth, rightDepth) + 1
 }
