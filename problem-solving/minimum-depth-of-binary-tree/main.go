@@ -14,10 +14,10 @@ func minDepthBFS(root *TreeNode) int {
 	var depth int
 
 	for len(queue) > 0 {
-		queue_length := len(queue)
+		queueLength := len(queue)
 		depth++
 
-		for i := 0; i < queue_length; i++ {
+		for i := 0; i < queueLength; i++ {
 			curr := queue[0]
 			queue = queue[1:]
 
