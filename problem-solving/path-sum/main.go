@@ -35,3 +35,16 @@ func DFSHelper(root *TreeNode, sum, targetSum int) bool {
 	return false
 
 }
+func DFSHelperCleaner(root *TreeNode, sum, targetSum int) bool {
+	if root == nil {
+		return false
+	}
+
+	sum += root.Val
+
+	if sum == targetSum && root.Left == nil && root.Right == nil {
+		return true
+	}
+
+	return DFSHelper(root.Left, sum, targetSum) || DFSHelper(root.Right, sum, targetSum)
+}
