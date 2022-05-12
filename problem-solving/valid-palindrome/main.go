@@ -24,3 +24,36 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
+
+//isPalindromeCleaner - Time Complexity - 0(n)
+func isPalindromeCleaner(s string) bool {
+	s = strings.ToLower(s)
+
+	for i, j := 0, len(s)-1; i < j; {
+		left := s[i]
+		right := s[j]
+
+		if !isAlphanumeric(left) {
+			i++
+			continue
+		}
+		if !isAlphanumeric(right) {
+			j--
+			continue
+		}
+
+		if s[i] != s[j] {
+			return false
+		}
+		i++
+		j--
+	}
+	return true
+}
+
+func isAlphanumeric(c byte) bool {
+	if (c >= 97 && c <= 122) || (c >= 48 && c <= 57) {
+		return true
+	}
+	return false
+}
