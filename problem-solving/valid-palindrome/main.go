@@ -52,8 +52,5 @@ func isPalindromeCleaner(s string) bool {
 }
 
 func isAlphanumeric(c byte) bool {
-	if (c >= 97 && c <= 122) || (c >= 48 && c <= 57) {
-		return true
-	}
-	return false
+	return (c >= 97 && c <= 122) || (c >= 48 && c <= 57)
 }
