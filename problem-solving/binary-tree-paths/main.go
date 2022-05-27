@@ -9,7 +9,11 @@ type TreeNode struct {
 }
 
 func binaryTreePaths(root *TreeNode) []string {
-	result := []string{}
+	var result []string
+
+	if root == nil {
+		return result
+	}
 
 	bptHelper(root, &result, "")
 
@@ -17,9 +21,6 @@ func binaryTreePaths(root *TreeNode) []string {
 }
 
 func bptHelper(root *TreeNode, result *[]string, str string) {
-	if root == nil {
-		return
-	}
 
 	if str != "" {
 		str += "->"
@@ -32,9 +33,13 @@ func bptHelper(root *TreeNode, result *[]string, str string) {
 		return
 	}
 
-	bptHelper(root.Left, result, str)
+	if root.Left != nil {
+		bptHelper(root.Left, result, str)
+	}
 
-	bptHelper(root.Right, result, str)
+	if root.Right != nil {
+		bptHelper(root.Right, result, str)
+	}
 
 	return
 }
