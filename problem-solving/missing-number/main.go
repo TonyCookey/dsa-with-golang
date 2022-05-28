@@ -12,3 +12,11 @@ func missingNumber(nums []int) int {
 	}
 	return len(nums)
 }
+func missingNumber2(nums []int) int {
+	var sum int
+	expectedSum := len(nums) * (len(nums) + 1) / 2
+	for _, v := range nums {
+		sum += v
+	}
+	return expectedSum - sum
+}
