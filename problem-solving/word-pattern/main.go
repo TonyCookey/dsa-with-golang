@@ -19,8 +19,6 @@ func wordPattern(pattern string, s string) bool {
 		if seenS[ss[i]] != 0 && seenS[ss[i]] != pattern[i] {
 			return false
 		}
-	}
-	for i := 0; i < len(pattern); i++ {
 		if seenP[pattern[i]] == "" {
 			seenP[pattern[i]] = ss[i]
 		}
