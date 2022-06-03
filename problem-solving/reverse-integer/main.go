@@ -19,7 +19,7 @@ func reverse(x int) int {
 	for i, j := 0, len(xs)-1; i < len(xs); i, j = i+1, j-1 {
 		sum += xs[i] * int(math.Pow10(j))
 		// greater than int32
-		if sum > 2147483647 {
+		if sum > math.MaxInt32 {
 			return 0
 		}
 	}
