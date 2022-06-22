@@ -29,3 +29,24 @@ func findDisappearedNumbers(nums []int) []int {
 	}
 	return result
 }
+func findDisappearedNumbersOptimal(nums []int) []int {
+	var result []int
+
+	for _, v := range nums {
+		nums[abs(v)-1] = -abs(nums[abs(v)-1])
+	}
+
+	for i, v := range nums {
+		if v > 0 {
+			result = append(result, i+1)
+		}
+	}
+	return result
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
