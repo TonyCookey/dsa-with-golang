@@ -10,6 +10,25 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func getMinimumDifference2(root *TreeNode) int {
+	var inOrderDFS func(root *TreeNode)
+	prev := -1
+	min := intsets.MaxInt
+
+	inOrderDFS = func(root *TreeNode) {
+		if root != nil {
+			inOrderDFS(root.Left)
+
+			if prev != -1 && root.Val-prev < min {
+				min = root.Val - prev
+			}
+			prev = root.Val
+			inOrderDFS(root.Right)
+		}
+	}
+	inOrderDFS(root)
+	return min
+}
 func getMinimumDifference(root *TreeNode) int {
 	var sorted []int
 	inOrderDFS(root, &sorted)
