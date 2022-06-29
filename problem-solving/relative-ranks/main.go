@@ -34,6 +34,31 @@ func findRelativeRanks(score []int) []string {
 	}
 	return result
 }
+func findRelativeRanks2(nums []int) []string {
+	athletes := make([][]int, len(nums))
+	for i, num := range nums {
+		athletes[i] = []int{i, num}
+	}
+	sort.Slice(athletes, func(i, j int) bool {
+		return athletes[i][1] > athletes[j][1]
+	})
+	rank := make([]string, len(nums))
+	// fmt.Println(athletes)
+	for i, athlete := range athletes {
+		switch i {
+		case 0:
+			rank[athlete[0]] = "Gold Medal"
+		case 1:
+			rank[athlete[0]] = "Silver Medal"
+		case 2:
+			rank[athlete[0]] = "Bronze Medal"
+		default:
+			rank[athlete[0]] = strconv.Itoa(i + 1)
+		}
+	}
+	return rank
+
+}
 
 type MyInt struct {
 	Val   int
