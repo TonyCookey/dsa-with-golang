@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// formular is:  return sum(nums) - (len(nums) * min(nums))
 func minMoves1(nums []int) int {
 	sort.Ints(nums)
 	var sum int
