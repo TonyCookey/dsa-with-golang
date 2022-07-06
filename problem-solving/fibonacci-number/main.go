@@ -7,10 +7,7 @@ func fib(n int) int {
 }
 
 func fibHelper(n int, seen map[int]int) int {
-	if n == 0 {
-		return 0
-	}
-	if seen[n] > 0 {
+	if _, ok := seen[n]; ok {
 		return seen[n]
 	}
 
