@@ -11,16 +11,16 @@ func levelOrder(root *TreeNode) [][]int {
 		return [][]int{}
 	}
 	var result [][]int
+
 	queue := []*TreeNode{root}
-	for len(queue) > 0 {
-		subQueueLen := len(queue)
 
-		var subResult []int
-		for i := 0; i < subQueueLen; i++ {
+	for len(queue) != 0 {
+		levelSize := len(queue)
+		var level []int
+
+		for i := 0; i < levelSize; i++ {
 			curr := queue[0]
-			queue = queue[1:]
-			subResult = append(subResult, curr.Val)
-
+			level = append(level, curr.Val)
 			if curr.Left != nil {
 				queue = append(queue, curr.Left)
 			}
@@ -28,8 +28,9 @@ func levelOrder(root *TreeNode) [][]int {
 			if curr.Right != nil {
 				queue = append(queue, curr.Right)
 			}
+			queue = queue[1:]
 		}
-		result = append(result, subResult)
+		result = append(result, level)
 	}
 	return result
 }
