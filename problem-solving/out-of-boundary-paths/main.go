@@ -30,11 +30,9 @@ func findPaths(m int, n int, N int, i int, j int) int {
 	return dp[N][i][j]
 }
 
-// Not working
+//TLE
 func findPathsMine(m int, n int, maxMove int, startRow int, startColumn int) int {
-	var max_paths int
-
-	// visited := make(map[[2]int]bool)
+	var maxPaths int
 
 	var DFS func(r, c, steps int)
 
@@ -42,23 +40,19 @@ func findPathsMine(m int, n int, maxMove int, startRow int, startColumn int) int
 		if steps > maxMove {
 			return
 		}
-		// if _, exists := visited[[2]int{r,c}]; exists {
-		//     return
-		// }
 
 		if r == m || r < 0 || c == n || c < 0 {
-			max_paths++
+			maxPaths++
 			return
 		}
-		// visited[[2]int{r,c}] = true
 		steps += 1
+
 		DFS(r+1, c, steps)
 		DFS(r-1, c, steps)
 		DFS(r, c+1, steps)
 		DFS(r, c-1, steps)
-
 		return
 	}
 	DFS(startRow, startColumn, 0)
-	return max_paths
+	return maxPaths
 }
