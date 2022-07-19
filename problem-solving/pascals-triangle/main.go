@@ -13,8 +13,8 @@ func generate(numRows int) [][]int {
 		row[0], row[len(row)-1] = 1, 1
 
 		for j := 1; j < len(row)-1; j++ {
-			prev_row := result[len(result)-1]
-			row[j] = prev_row[j] + prev_row[j-1]
+			prevRow := result[len(result)-1]
+			row[j] = prevRow[j] + prevRow[j-1]
 		}
 		result = append(result, row)
 	}
