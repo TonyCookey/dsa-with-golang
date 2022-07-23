@@ -23,7 +23,6 @@ func Constructor(capacity int) LRUCache {
 		Key: -1,
 		Val: -1,
 	}
-
 	Tail.Prev, Head.Next = Head, Tail
 
 	return LRUCache{
