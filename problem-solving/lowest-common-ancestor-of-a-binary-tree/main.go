@@ -42,5 +42,27 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 
 	traverse(root)
 	return ans
+}
 
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+	var traverse func(root *TreeNode) *TreeNode
+
+	traverse = func(root *TreeNode) *TreeNode {
+		if root == nil || root == p || root == q {
+			return root
+		}
+
+		left := traverse(root.Left)
+		right := traverse(root.Right)
+
+		if left != nil && right != nil {
+			return root
+		}
+		if left != nil {
+			return left
+		}
+		return right
+	}
+
+	return traverse(root)
 }
