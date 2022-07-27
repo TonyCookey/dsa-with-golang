@@ -35,3 +35,28 @@ func flatten(root *TreeNode) {
 		}
 	}
 }
+
+func flatten2(root *TreeNode) {
+	var preorder func(root *TreeNode) *TreeNode
+
+	preorder = func(root *TreeNode) *TreeNode {
+		if root == nil {
+			return nil
+		}
+		leftLast := preorder(root.Left)
+		rightLast := preorder(root.Right)
+		if leftLast != nil {
+			leftLast.Right = root.Right
+			root.Right = root.Left
+			root.Left = nil
+		}
+		if rightLast != nil {
+			return rightLast
+		}
+		if leftLast != nil {
+			return leftLast
+		}
+		return root
+	}
+	preorder(root)
+}
