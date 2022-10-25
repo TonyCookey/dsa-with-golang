@@ -13,3 +13,20 @@ func isSubsequence(s string, t string) bool {
 	}
 	return count == len(s)
 }
+
+func IsValidSubsequence(array []int, sequence []int) bool {
+	var matches int
+	for i := 0; i < len(sequence); i++ {
+		for j := 0; i < len(sequence) && j < len(array); {
+			if sequence[i] == array[j] {
+				i++
+				j++
+				matches++
+				continue
+			} else {
+				j++
+			}
+		}
+	}
+	return matches == len(sequence)
+}
