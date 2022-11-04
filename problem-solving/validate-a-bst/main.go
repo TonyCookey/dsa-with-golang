@@ -76,12 +76,12 @@ func isValidBSTOptimum(node *Node) bool {
 	return validateHelper(node, math.MinInt64, math.MaxInt64)
 }
 
-//validateHelper - helper fucntion to validate a BST
+//validateHelper - helper function to validate a BST
 func validateHelper(node *Node, min, max int) bool {
 	if node == nil {
 		return true
 	}
-	if !(node.value > min && node.value < max) {
+	if !(node.value >= min && node.value < max) {
 		return false
 	}
 	return validateHelper(node.left, min, node.value) && validateHelper(node.right, node.value, max)
