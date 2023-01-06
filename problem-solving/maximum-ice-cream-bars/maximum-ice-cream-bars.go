@@ -5,11 +5,11 @@ import "sort"
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
 
-	var curr_cost, count int
+	var currCost, count int
 
 	for _, cost := range costs {
-		curr_cost += cost
-		if curr_cost > coins {
+		currCost += cost
+		if currCost > coins {
 			return count
 		}
 		count++
