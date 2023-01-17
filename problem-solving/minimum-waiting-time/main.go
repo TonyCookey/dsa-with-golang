@@ -15,6 +15,7 @@ func MinimumWaitingTime(queries []int) int {
 	return sum
 }
 
+// 0(NlogN) Time | 0(1) Space
 func MinimumWaitingTimeOptimal(queries []int) int {
 	// Write your code here
 	sort.Ints(queries)
