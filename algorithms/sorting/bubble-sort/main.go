@@ -22,3 +22,20 @@ func bubbleSort(xi []int) []int {
 	}
 	return xi
 }
+
+func BubbleSort(array []int) []int {
+	// Write your code here.
+	swap := true
+	end := len(array) - 1
+	for swap {
+		swap = false
+		for i := 1; i <= end; i++ {
+			if array[i] < array[i-1] {
+				array[i], array[i-1] = array[i-1], array[i]
+				swap = true
+			}
+		}
+		end--
+	}
+	return array
+}
