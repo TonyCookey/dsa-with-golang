@@ -7,6 +7,20 @@ func main() {
 	fmt.Println(insertionSort(xi))
 }
 
+func InsertionSort(array []int) []int {
+
+	for i := 1; i < len(array); i++ {
+		index := i
+		for j := i - 1; j >= 0; j-- {
+			if array[index] < array[j] {
+				array[index], array[j] = array[j], array[index]
+			}
+			index--
+		}
+	}
+	return array
+}
+
 //insertionSort - insertion sort algorithm
 func insertionSort(xi []int) []int {
 	for i := 0; i < len(xi)-1; i++ {
