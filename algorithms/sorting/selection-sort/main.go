@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	xi := []int{99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 23, 20, 18, 28}
 	fmt.Println(selectionSort(xi))
-	fmt.Println(selectionSortSecondApproach(xi))
+	fmt.Println(SelectionSort(xi))
 }
 
 //selectionSort - selection sort algorithm appraoch 1
@@ -29,18 +29,18 @@ func selectionSort(xi []int) []int {
 	return xi
 }
 
-//selectionSortSecondApproach - selection sort algorithm approach 2
-func selectionSortSecondApproach(xi []int) []int {
-	for i := 0; i < len(xi); i++ {
+//SelectionSort - Selection Sort Algorithm
+func SelectionSort(array []int) []int {
+	// Write your code here.
+
+	for i := 0; i < len(array); i++ {
 		minIndex := i
-		for j := i + 1; j < len(xi); j++ {
-			if xi[minIndex] > xi[j] {
+		for j := i + 1; j < len(array); j++ {
+			if array[j] < array[minIndex] {
 				minIndex = j
 			}
 		}
-		holding := xi[i]
-		xi[i] = xi[minIndex]
-		xi[minIndex] = holding
+		array[minIndex], array[i] = array[i], array[minIndex]
 	}
-	return xi
+	return array
 }
