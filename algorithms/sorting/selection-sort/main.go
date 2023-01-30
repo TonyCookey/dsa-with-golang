@@ -31,8 +31,6 @@ func selectionSort(xi []int) []int {
 
 //SelectionSort - Selection Sort Algorithm
 func SelectionSort(array []int) []int {
-	// Write your code here.
-
 	for i := 0; i < len(array); i++ {
 		minIndex := i
 		for j := i + 1; j < len(array); j++ {

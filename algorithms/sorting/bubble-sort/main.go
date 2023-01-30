@@ -10,13 +10,10 @@ func main() {
 //bubbleSort - bubble sort algorithm
 func bubbleSort(xi []int) []int {
 	length := len(xi)
-
 	for i := 0; i < length; i++ {
 		for j := 0; j < length-1; j++ {
 			if xi[j] > xi[j+1] {
-				current := xi[j]
-				xi[j] = xi[j+1]
-				xi[j+1] = current
+				xi[j+1], xi[j] = xi[j], xi[j+1]
 			}
 		}
 	}
@@ -24,7 +21,6 @@ func bubbleSort(xi []int) []int {
 }
 
 func BubbleSort(array []int) []int {
-	// Write your code here.
 	swap := true
 	end := len(array) - 1
 	for swap {

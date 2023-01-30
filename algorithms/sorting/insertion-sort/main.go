@@ -8,7 +8,6 @@ func main() {
 }
 
 func InsertionSort(array []int) []int {
-
 	for i := 1; i < len(array); i++ {
 		index := i
 		for j := i - 1; j >= 0; j-- {
