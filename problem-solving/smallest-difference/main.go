@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// SmallestDifferenceBruteForce  - 0(NM^2) Time | 0(1) Space
+// SmallestDifferenceBruteForce  - 0(NM) Time | 0(1) Space
 func SmallestDifferenceBruteForce(array1, array2 []int) []int {
 	minDiff := intsets.MaxInt
 	var ans []int
@@ -20,7 +20,7 @@ func SmallestDifferenceBruteForce(array1, array2 []int) []int {
 	return ans
 }
 
-//SmallestDifferenceOptimal - 0(NLogM) Time | 0(1) Space
+//SmallestDifferenceOptimal - 0(NLogN + MLogM) Time | 0(1) Space
 func SmallestDifferenceOptimal(array1, array2 []int) []int {
 	sort.Ints(array1)
 	sort.Ints(array2)
